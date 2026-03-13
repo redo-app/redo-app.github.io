@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Re:do - 記憶の定着にこだわった学習アプリ</title>
+  <meta name="description" content="Re:doは「学んだことを、忘れない」をテーマに、記憶定着にこだわった学習アプリを開発しています。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --text2: #5a5a5a;
+      --accent: #0071e3;
+      --border: #e5e5e5;
+      --ja: 'Noto Sans JP', sans-serif;
+      --en: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ja);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(250,250,250,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 960px; margin: 0 auto; padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .logo { font-family: var(--en); font-size: 22px; font-weight: 700; color: var(--text); }
+    .logo span { color: var(--accent); }
+
+    nav a {
+      font-size: 14px; font-weight: 500; color: var(--text2);
+      text-decoration: none; margin-left: 28px; transition: color 0.2s;
+    }
+    nav a:hover { color: var(--accent); }
+
+    .hero { padding: 160px 24px 80px; text-align: center; }
+
+    .hero h1 {
+      font-family: var(--en); font-size: clamp(40px, 7vw, 64px);
+      font-weight: 700; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--accent); }
+
+    .hero p {
+      font-size: 16px; color: var(--text2); max-width: 480px;
+      margin: 0 auto; font-weight: 300;
+    }
+
+    .wrap { max-width: 960px; margin: 0 auto; padding: 64px 24px; }
+
+    .label {
+      font-family: var(--en); font-size: 12px; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+    }
+
+    .title { font-size: 28px; font-weight: 600; margin-bottom: 40px; letter-spacing: -0.5px; }
+
+    .apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+
+    .app-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 36px 32px; transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .app-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.06); transform: translateY(-2px); }
+
+    .app-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--en); font-weight: 700; font-size: 18px; color: white; margin-bottom: 20px;
+    }
+    .icon-green { background: linear-gradient(135deg, #34c759, #30b050); }
+    .icon-purple { background: linear-gradient(135deg, #5856d6, #4840c4); }
+
+    .app-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+    .app-card p { font-size: 14px; color: var(--text2); line-height: 1.7; }
+
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .about-text p { font-size: 15px; color: var(--text2); margin-bottom: 16px; font-weight: 300; }
+
+    .info-table { width: 100%; border-collapse: collapse; }
+    .info-table tr { border-bottom: 1px solid var(--border); }
+    .info-table th {
+      text-align: left; font-size: 13px; font-weight: 500;
+      color: var(--text2); padding: 14px 16px 14px 0; white-space: nowrap; width: 100px;
+    }
+    .info-table td { font-size: 14px; padding: 14px 0; }
+
+    .contact-area { text-align: center; padding: 80px 24px; }
+
+    .contact-email {
+      display: inline-block; font-family: var(--en); font-size: 18px; font-weight: 500;
+      color: var(--accent); text-decoration: none; padding: 14px 36px;
+      border: 1.5px solid var(--accent); border-radius: 50px; transition: background 0.2s, color 0.2s;
+    }
+    .contact-email:hover { background: var(--accent); color: white; }
+
+    footer {
+      text-align: center; padding: 32px 24px; border-top: 1px solid var(--border);
+      font-size: 13px; color: var(--text2); font-family: var(--en);
+    }
+
+    @media (max-width: 640px) {
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      nav a { margin-left: 16px; font-size: 13px; }
+      .hero { padding: 140px 24px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">Re<span>:</span>do</div>
+    <nav>
+      <a href="#apps">Apps</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <h1>Re<span>:</span>do</h1>
+    <p>「学んだことを、忘れない」をテーマに、<br>記憶の定着にこだわった学習アプリを開発しています。</p>
+  </div>
+
+  <div class="wrap" id="apps">
+    <div class="label">Apps</div>
+    <h2 class="title">提供アプリ</h2>
+    <div class="apps-grid">
+      <div class="app-card">
+        <div class="app-icon icon-green">S</div>
+        <h3>スマ看</h3>
+        <p>記憶定着に特化した看護師国家試験対策アプリ。目標日数に合わせて問題数や復習スケジュールをアプリが自動管理。独自の合格率判定機能で、学習の進捗を可視化します。</p>
+      </div>
+      <div class="app-card">
+        <div class="app-icon icon-purple">R</div>
+        <h3>Retalk</h3>
+        <p>会話の流れごと覚える英語学習アプリ。自然な会話を通じて実践的な英語力を身につけ、間隔反復システムで長期記憶への定着をサポートします。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" id="about">
+    <div class="label">About</div>
+    <h2 class="title">事業概要</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Re:do（リドゥー）は、「学んだことを確実に定着させる」をコンセプトに、学習アプリの企画・開発・運営を行っている個人事業です。</p>
+        <p>科学的な記憶定着のアプローチを取り入れ、ユーザーが効率よく学び、忘れない学習体験を提供しています。</p>
+      </div>
+      <table class="info-table">
+        <tr><th>事業名</th><td>Re:do（リドゥー）</td></tr>
+        <tr><th>代表者</th><td>村瀬 祐孝</td></tr>
+        <tr><th>事業内容</th><td>学習アプリの開発・運営</td></tr>
+        <tr><th>所在地</th><td>愛知県江南市</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="wrap contact-area" id="contact">
+    <div class="label">Contact</div>
+    <h2 class="title">お問い合わせ</h2>
+    <p style="color:var(--text2);font-size:15px;margin-bottom:28px;font-weight:300;">アプリに関するご質問・ご要望はこちらまで</p>
+    <a href="mailto:info@redo-app.com" class="contact-email">info@redo-app.com</a>
+  </div>
+</main>
+
+<footer>&copy; 2025 Re:do. All rights reserved.</footer>
+
+</body>
+</html>
