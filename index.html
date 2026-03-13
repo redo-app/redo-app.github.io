@@ -81,16 +81,14 @@
     .app-card {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 16px; padding: 36px 32px; transition: box-shadow 0.3s, transform 0.3s;
+      text-decoration: none; color: inherit; display: block;
     }
     .app-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.06); transform: translateY(-2px); }
 
     .app-icon {
       width: 56px; height: 56px; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--en); font-weight: 700; font-size: 18px; color: white; margin-bottom: 20px;
+      margin-bottom: 20px; object-fit: cover;
     }
-    .icon-green { background: linear-gradient(135deg, #34c759, #30b050); }
-    .icon-purple { background: linear-gradient(135deg, #5856d6, #4840c4); }
 
     .app-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
     .app-card p { font-size: 14px; color: var(--text2); line-height: 1.7; }
@@ -150,16 +148,16 @@
     <div class="label">Apps</div>
     <h2 class="title">提供アプリ</h2>
     <div class="apps-grid">
-      <div class="app-card">
-        <div class="app-icon icon-green">S</div>
+      <a class="app-card" href="https://apps.apple.com/jp/app/%E3%82%B9%E3%83%9E%E7%9C%8B/id6757530983" target="_blank" rel="noopener noreferrer">
+        <img src="smakan-icon.png" alt="スマ看" class="app-icon">
         <h3>スマ看</h3>
         <p>記憶定着に特化した看護師国家試験対策アプリ。目標日数に合わせて問題数や復習スケジュールをアプリが自動管理。独自の合格率判定機能で、学習の進捗を可視化します。</p>
-      </div>
-      <div class="app-card">
-        <div class="app-icon icon-purple">R</div>
+      </a>
+      <a class="app-card" href="https://apps.apple.com/jp/app/re-talk/id6759627330" target="_blank" rel="noopener noreferrer">
+        <img src="retalk-icon.png" alt="Retalk" class="app-icon">
         <h3>Retalk</h3>
         <p>会話の流れごと覚える英語学習アプリ。自然な会話を通じて実践的な英語力を身につけ、間隔反復システムで長期記憶への定着をサポートします。</p>
-      </div>
+      </a>
     </div>
   </div>
 
