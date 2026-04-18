@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー - Hodoku</title>
+  <meta name="description" content="Hodoku プライバシーポリシー">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #f7f9fc;
+      --surface: #ffffff;
+      --text: #1a1f2e;
+      --text2: #5a6478;
+      --accent: #3a9de0;
+      --accent-light: #e8f4fd;
+      --border: #e4eaf2;
+      --ja: 'Noto Sans JP', sans-serif;
+      --en: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ja);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(247,249,252,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 800px; margin: 0 auto; padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .logo {
+      font-family: var(--en); font-size: 20px; font-weight: 700;
+      color: var(--text); text-decoration: none; letter-spacing: -0.3px;
+    }
+    .logo span { color: var(--accent); }
+
+    .back-link {
+      font-size: 13px; font-weight: 500; color: var(--text2);
+      text-decoration: none; transition: color 0.2s;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .back-link:hover { color: var(--accent); }
+    .back-link::before { content: '←'; font-size: 14px; }
+
+    .hero {
+      padding: 120px 24px 48px;
+      max-width: 800px; margin: 0 auto;
+    }
+
+    .app-label {
+      font-family: var(--en); font-size: 11px; font-weight: 600;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 12px; display: block;
+    }
+
+    .hero h1 {
+      font-size: 32px; font-weight: 600; letter-spacing: -0.5px;
+      margin-bottom: 8px; color: var(--text);
+    }
+
+    .hero .meta {
+      font-size: 13px; color: var(--text2); font-weight: 300;
+    }
+
+    .divider {
+      max-width: 800px; margin: 0 auto;
+      padding: 0 24px;
+    }
+    .divider hr { border: none; border-top: 1px solid var(--border); }
+
+    .content {
+      max-width: 800px; margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .toc {
+      background: var(--accent-light);
+      border-radius: 12px; padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+
+    .toc-title {
+      font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 14px; font-family: var(--en);
+    }
+
+    .toc ol {
+      list-style: none; counter-reset: toc-counter;
+      columns: 2; column-gap: 24px;
+    }
+
+    @media (max-width: 560px) {
+      .toc ol { columns: 1; }
+    }
+
+    .toc ol li {
+      counter-increment: toc-counter;
+      font-size: 13px; color: var(--text2);
+      padding: 3px 0;
+    }
+
+    .toc ol li::before {
+      content: counter(toc-counter, decimal-leading-zero) ". ";
+      color: var(--accent); font-weight: 600; font-family: var(--en);
+      font-size: 11px;
+    }
+
+    .section { margin-bottom: 48px; }
+
+    .section-title {
+      font-size: 17px; font-weight: 600;
+      color: var(--text); margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1.5px solid var(--border);
+      display: flex; align-items: baseline; gap: 10px;
+    }
+
+    .section-num {
+      font-family: var(--en); font-size: 11px; font-weight: 700;
+      letter-spacing: 1px; color: var(--accent);
+      background: var(--accent-light); padding: 2px 8px;
+      border-radius: 4px; flex-shrink: 0;
+    }
+
+    .section p {
+      font-size: 14px; color: var(--text2); margin-bottom: 12px;
+      font-weight: 300; line-height: 1.85;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    .section ol, .section ul {
+      padding-left: 0; list-style: none; margin-top: 8px;
+    }
+
+    .section ol li, .section ul li {
+      font-size: 14px; color: var(--text2); font-weight: 300;
+      padding: 6px 0 6px 20px; position: relative;
+      border-bottom: 1px solid var(--border); line-height: 1.75;
+    }
+
+    .section ol li:last-child, .section ul li:last-child {
+      border-bottom: none;
+    }
+
+    .section ol { counter-reset: list-counter; }
+    .section ol li { counter-increment: list-counter; }
+    .section ol li::before {
+      content: '(' counter(list-counter) ')';
+      position: absolute; left: 0;
+      color: var(--accent); font-size: 12px; font-weight: 600;
+      font-family: var(--en); top: 7px;
+    }
+
+    .section ul li::before {
+      content: '–';
+      position: absolute; left: 0;
+      color: var(--accent); font-weight: 600;
+    }
+
+    .highlight-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px; margin: 16px 0;
+      font-size: 14px; color: var(--text2); font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .ext-link {
+      color: var(--accent); text-decoration: none; font-weight: 500;
+      word-break: break-all;
+    }
+    .ext-link:hover { text-decoration: underline; }
+
+    .closing {
+      margin-top: 64px; padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .closing p {
+      font-size: 13px; color: var(--text2); font-weight: 300;
+      margin-bottom: 6px;
+    }
+
+    .closing .date {
+      font-family: var(--en); font-size: 13px;
+      color: var(--accent); font-weight: 500;
+    }
+
+    footer {
+      text-align: center; padding: 28px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--text2);
+      font-family: var(--en);
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 26px; }
+      .hero { padding: 110px 24px 40px; }
+      .content { padding: 40px 20px 64px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="/">Re<span>:</span>do</a>
+    <a class="back-link" href="/">ホームに戻る</a>
+  </div>
+</header>
+
+<div class="hero">
+  <span class="app-label">Hodoku</span>
+  <h1>プライバシーポリシー</h1>
+  <p class="meta">Privacy Policy &nbsp;·&nbsp; 2026年4月18日 制定</p>
+</div>
+
+<div class="divider"><hr></div>
+
+<div class="content">
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li>基本方針</li>
+      <li>収集する情報</li>
+      <li>情報の利用目的</li>
+      <li>AIへのデータ送信について</li>
+      <li>広告について</li>
+      <li>利用履歴データの取扱い</li>
+      <li>第三者への提供</li>
+      <li>安全管理措置</li>
+      <li>お問い合わせ時の情報</li>
+      <li>お子様のプライバシー</li>
+      <li>本ポリシーの変更</li>
+      <li>お問い合わせ窓口</li>
+    </ol>
+  </div>
+
+  <p style="font-size:14px;color:var(--text2);font-weight:300;margin-bottom:48px;line-height:1.85;">
+    Re:do（以下「運営者」といいます）は、iOSアプリケーション「Hodoku」（以下「本アプリ」といいます）における利用者の情報の取扱いについて、以下のとおりプライバシーポリシー（以下「本ポリシー」といいます）を定めます。
+  </p>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">01</span>基本方針</div>
+    <p>運営者は、利用者のプライバシーを尊重し、個人情報の保護に努めます。本アプリは感情・人間関係というデリケートな内容を扱うサービスであるため、利用者の情報の取扱いに最大限の配慮を行います。</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">02</span>収集する情報</div>
+    <p>本アプリは、以下の情報を取得することがあります。</p>
+    <ol>
+      <li>利用者が入力した質問への回答内容および自由テキスト</li>
+      <li>キャラクター・背景テーマ等の設定情報</li>
+      <li>広告配信のための広告識別子（IDFA等）</li>
+      <li>お問い合わせ時のメールアドレスおよびお問い合わせ内容</li>
+      <li>不具合対応のための端末情報（OSバージョン、端末モデル、アプリバージョン等）</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">03</span>情報の利用目的</div>
+    <p>取得した情報は、以下の目的でのみ利用します。</p>
+    <ol>
+      <li>本アプリの機能提供およびAI分析結果の表示</li>
+      <li>広告の配信</li>
+      <li>お問い合わせへの回答および不具合の調査・対応</li>
+      <li>本アプリの品質向上および改善</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">04</span>AIへのデータ送信について</div>
+    <p>1. 本アプリは、利用者が入力した内容を感情整理の分析に使用するため、外部のAIサービス（Anthropic社のClaude API）に送信します。</p>
+    <div class="highlight-box">
+      送信されたデータはAI分析のためにのみ使用され、AIモデルの学習には一切使用されません（Anthropic APIの利用規約により保証されています）。
+    </div>
+    <p>2. データはAnthropicのサーバーに一時的に送信されますが、運営者がその内容を閲覧・保存することはありません。</p>
+    <p>3. 詳細はAnthropicのプライバシーポリシーをご確認ください。<br>
+      <a href="https://www.anthropic.com/privacy" class="ext-link" target="_blank" rel="noopener noreferrer">https://www.anthropic.com/privacy</a>
+    </p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">05</span>広告について</div>
+    <p>1. 本アプリの無料プランでは、Google AdMobによる広告を表示します。</p>
+    <p>2. Google AdMobは、広告配信のために利用者の広告識別子（IDFA等）を取得することがあります。</p>
+    <p>3. Googleによる情報収集および利用については、Googleのプライバシーポリシーをご確認ください。<br>
+      <a href="https://policies.google.com/privacy" class="ext-link" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a>
+    </p>
+    <p>4. 利用者は、端末の設定から広告識別子のリセットや追跡の制限を行うことができます。</p>
+    <p>5. 有料プラン（ライト・プレミアム）をご利用の場合、広告は表示されません。</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">06</span>利用履歴データの取扱い</div>
+    <p>1. 利用者の入力履歴、分析結果等のデータは、すべて利用者の端末内に保存されます。</p>
+    <div class="highlight-box">
+      運営者は、利用者の利用履歴データにアクセスする手段を持たず、これを収集・閲覧・利用することはありません。
+    </div>
+    <p>2. 端末の変更、本アプリの削除、端末の故障等により利用履歴が失われた場合、運営者はこれを復旧することができません。</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">07</span>第三者への提供</div>
+    <p>運営者は、以下の場合を除き、利用者の情報を第三者に提供することはありません。</p>
+    <ol>
+      <li>利用者の同意がある場合</li>
+      <li>法令に基づく場合</li>
+      <li>人の生命、身体または財産の保護のために必要がある場合であって、利用者の同意を得ることが困難であるとき</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">08</span>安全管理措置</div>
+    <p>運営者は、取得した情報の漏洩、滅失またはき損の防止のため、以下の対策を実施します。</p>
+    <ol>
+      <li>AIサービスへのデータ送信時の通信経路の暗号化（HTTPS/TLS）</li>
+      <li>パスコード・Face ID・Touch IDによるアプリロック機能の提供</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">09</span>お問い合わせ時の情報</div>
+    <p>1. 利用者がお問い合わせを行う場合、以下の情報を取得することがあります。</p>
+    <ol>
+      <li>メールアドレス</li>
+      <li>お問い合わせ内容</li>
+      <li>端末情報（OSバージョン、アプリバージョン、利用端末の機種）</li>
+    </ol>
+    <p>2. 取得した情報は、お問い合わせへの対応が完了した後、合理的な期間（最長1年間）保存した後、削除します。ただし、法令により保存が義務付けられている場合は、当該法令に定める期間保存します。</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">10</span>お子様のプライバシー</div>
+    <p>本アプリは、13歳未満のお子様から意図的に個人情報を収集することはありません。</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">11</span>本ポリシーの変更</div>
+    <p>1. 運営者は、必要に応じて本ポリシーを変更することがあります。</p>
+    <p>2. 本ポリシーを変更した場合、本アプリ内での表示またはその他適切な方法により利用者に通知します。</p>
+    <p>3. 変更後の本ポリシーは、本アプリ内に掲示した時点から効力を生じるものとします。</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">12</span>お問い合わせ窓口</div>
+    <p>本ポリシーに関するお問い合わせは、以下の連絡先までお願いいたします。</p>
+    <p>メールアドレス：<a href="mailto:info@redo-app.com" style="color:var(--accent);text-decoration:none;font-weight:500;">info@redo-app.com</a></p>
+  </div>
+
+  <div class="closing">
+    <p>制定日</p>
+    <p class="date">2026年4月18日</p>
+  </div>
+
+</div>
+
+<footer>&copy; 2026 Re:do. All rights reserved.</footer>
+
+</body>
+</html>
