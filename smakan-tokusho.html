@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>特定商取引法に基づく表記 - スマ看</title>
+  <meta name="description" content="スマ看 特定商取引法に基づく表記">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #f7f9fc; --surface: #ffffff; --text: #1a1f2e; --text2: #5a6478;
+      --accent: #3a9de0; --accent-light: #e8f4fd; --border: #e4eaf2;
+      --ja: 'Noto Sans JP', sans-serif; --en: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--ja); background: var(--bg); color: var(--text); line-height: 1.9; -webkit-font-smoothing: antialiased; }
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(247,249,252,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .header-inner { max-width: 800px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: var(--en); font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.3px; }
+    .logo span { color: var(--accent); }
+    .back-link { font-size: 13px; font-weight: 500; color: var(--text2); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 4px; }
+    .back-link:hover { color: var(--accent); }
+    .back-link::before { content: '←'; font-size: 14px; }
+    .hero { padding: 120px 24px 48px; max-width: 800px; margin: 0 auto; }
+    .app-label { font-family: var(--en); font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; display: block; }
+    .hero h1 { font-size: 32px; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 8px; color: var(--text); }
+    .hero .meta { font-size: 13px; color: var(--text2); font-weight: 300; }
+    .divider { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    .divider hr { border: none; border-top: 1px solid var(--border); }
+    .content { max-width: 800px; margin: 0 auto; padding: 48px 24px 80px; }
+    .intro { font-size: 14px; color: var(--text2); font-weight: 300; margin-bottom: 40px; line-height: 1.85; }
+    .tokusho-table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+    .tokusho-table tr { border-bottom: 1px solid var(--border); }
+    .tokusho-table tr:last-child { border-bottom: none; }
+    .tokusho-table th { text-align: left; font-size: 13px; font-weight: 500; color: var(--text2); padding: 18px 24px; background: var(--accent-light); white-space: nowrap; width: 180px; vertical-align: top; border-right: 1px solid var(--border); }
+    .tokusho-table td { font-size: 14px; font-weight: 300; color: var(--text2); padding: 18px 24px; line-height: 1.8; vertical-align: top; }
+    .tokusho-table td a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    .tokusho-table td a:hover { text-decoration: underline; }
+    .note { margin-top: 24px; padding: 14px 18px; background: var(--accent-light); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; font-size: 13px; color: var(--text2); font-weight: 300; line-height: 1.8; }
+    .closing { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--border); text-align: center; }
+    .closing p { font-size: 13px; color: var(--text2); font-weight: 300; margin-bottom: 6px; }
+    .closing .date { font-family: var(--en); font-size: 13px; color: var(--accent); font-weight: 500; }
+    footer { text-align: center; padding: 28px 24px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text2); font-family: var(--en); }
+    @media (max-width: 640px) { .hero h1 { font-size: 26px; } .hero { padding: 110px 24px 40px; } .content { padding: 40px 20px 64px; } .tokusho-table th { width: 120px; padding: 14px 16px; font-size: 12px; } .tokusho-table td { padding: 14px 16px; font-size: 13px; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a class="logo" href="/">Re<span>:</span>do</a>
+    <a class="back-link" href="/">ホームに戻る</a>
+  </div>
+</header>
+
+<div class="hero">
+  <span class="app-label">スマ看</span>
+  <h1>特定商取引法に基づく表記</h1>
+  <p class="meta">Specified Commercial Transaction Act &nbsp;·&nbsp; 2026年3月24日</p>
+</div>
+<div class="divider"><hr></div>
+
+<div class="content">
+  <p class="intro">特定商取引法に基づき、以下のとおり表記します。</p>
+  <table class="tokusho-table">
+    <tr><th>販売業者</th><td>Re:do</td></tr>
+    <tr><th>運営責任者</th><td>請求があった場合、遅滞なく開示いたします</td></tr>
+    <tr><th>所在地</th><td>請求があった場合、遅滞なく開示いたします</td></tr>
+    <tr><th>電話番号</th><td>請求があった場合、遅滞なく開示いたします</td></tr>
+    <tr><th>メールアドレス</th><td><a href="mailto:info@redo-app.com">info@redo-app.com</a></td></tr>
+    <tr><th>販売価格</th><td>月額プラン：300円（税込）<br>年額プラン：2,000円（税込）</td></tr>
+    <tr><th>支払方法</th><td>App内課金（Apple ID決済）</td></tr>
+    <tr><th>支払時期</th><td>購入時に即時決済</td></tr>
+    <tr><th>サービス提供時期</th><td>決済完了後、即時利用可能</td></tr>
+    <tr><th>返品・キャンセル</th><td>デジタルコンテンツの性質上、購入後の返金はAppleの返金ポリシーに準拠します。サブスクリプションの解約は、現在の期間終了の24時間前までにApp Storeの設定から手続きしてください。</td></tr>
+    <tr><th>動作環境</th><td>iOS 17.0以降</td></tr>
+  </table>
+  <div class="note">運営責任者・所在地・電話番号については、メールにてご請求いただければ遅滞なく開示いたします。</div>
+  <div class="closing">
+    <p>掲載日</p>
+    <p class="date">2026年3月24日</p>
+  </div>
+</div>
+
+<footer>&copy; 2026 Re:do. All rights reserved.</footer>
+</body>
+</html>
