@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>利用規約 - Hodoku</title>
+  <meta name="description" content="Hodoku 利用規約">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #f7f9fc;
+      --surface: #ffffff;
+      --text: #1a1f2e;
+      --text2: #5a6478;
+      --accent: #3a9de0;
+      --accent-light: #e8f4fd;
+      --border: #e4eaf2;
+      --ja: 'Noto Sans JP', sans-serif;
+      --en: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ja);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(247,249,252,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 800px; margin: 0 auto; padding: 16px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .logo {
+      font-family: var(--en); font-size: 20px; font-weight: 700;
+      color: var(--text); text-decoration: none; letter-spacing: -0.3px;
+    }
+    .logo span { color: var(--accent); }
+
+    .back-link {
+      font-size: 13px; font-weight: 500; color: var(--text2);
+      text-decoration: none; transition: color 0.2s;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .back-link:hover { color: var(--accent); }
+    .back-link::before { content: '←'; font-size: 14px; }
+
+    .hero {
+      padding: 120px 24px 48px;
+      max-width: 800px; margin: 0 auto;
+    }
+
+    .app-label {
+      font-family: var(--en); font-size: 11px; font-weight: 600;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 12px; display: block;
+    }
+
+    .hero h1 {
+      font-size: 32px; font-weight: 600; letter-spacing: -0.5px;
+      margin-bottom: 8px; color: var(--text);
+    }
+
+    .hero .meta {
+      font-size: 13px; color: var(--text2); font-weight: 300;
+    }
+
+    .divider {
+      max-width: 800px; margin: 0 auto 0;
+      padding: 0 24px;
+    }
+    .divider hr { border: none; border-top: 1px solid var(--border); }
+
+    .content {
+      max-width: 800px; margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    .toc {
+      background: var(--accent-light);
+      border-radius: 12px; padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+
+    .toc-title {
+      font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 14px; font-family: var(--en);
+    }
+
+    .toc ol {
+      list-style: none; counter-reset: toc-counter;
+      columns: 2; column-gap: 24px;
+    }
+
+    @media (max-width: 560px) {
+      .toc ol { columns: 1; }
+    }
+
+    .toc ol li {
+      counter-increment: toc-counter;
+      font-size: 13px; color: var(--text2);
+      padding: 3px 0;
+    }
+
+    .toc ol li::before {
+      content: counter(toc-counter, decimal-leading-zero) ". ";
+      color: var(--accent); font-weight: 600; font-family: var(--en);
+      font-size: 11px;
+    }
+
+    .section { margin-bottom: 48px; }
+
+    .section-title {
+      font-size: 17px; font-weight: 600;
+      color: var(--text); margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1.5px solid var(--border);
+      display: flex; align-items: baseline; gap: 10px;
+    }
+
+    .section-num {
+      font-family: var(--en); font-size: 11px; font-weight: 700;
+      letter-spacing: 1px; color: var(--accent);
+      background: var(--accent-light); padding: 2px 8px;
+      border-radius: 4px; flex-shrink: 0;
+    }
+
+    .section p {
+      font-size: 14px; color: var(--text2); margin-bottom: 12px;
+      font-weight: 300; line-height: 1.85;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    .section ol, .section ul {
+      padding-left: 0; list-style: none; margin-top: 8px;
+    }
+
+    .section ol li, .section ul li {
+      font-size: 14px; color: var(--text2); font-weight: 300;
+      padding: 6px 0 6px 20px; position: relative;
+      border-bottom: 1px solid var(--border); line-height: 1.75;
+    }
+
+    .section ol li:last-child, .section ul li:last-child {
+      border-bottom: none;
+    }
+
+    .section ol { counter-reset: list-counter; }
+    .section ol li { counter-increment: list-counter; }
+    .section ol li::before {
+      content: '(' counter(list-counter) ')';
+      position: absolute; left: 0;
+      color: var(--accent); font-size: 12px; font-weight: 600;
+      font-family: var(--en); top: 7px;
+    }
+
+    .section ul li::before {
+      content: '–';
+      position: absolute; left: 0;
+      color: var(--accent); font-weight: 600;
+    }
+
+    .highlight-box {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px; margin: 16px 0;
+      font-size: 14px; color: var(--text2); font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .closing {
+      margin-top: 64px; padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .closing p {
+      font-size: 13px; color: var(--text2); font-weight: 300;
+      margin-bottom: 6px;
+    }
+
+    .closing .date {
+      font-family: var(--en); font-size: 13px;
+      color: var(--accent); font-weight: 500;
+    }
+
+    footer {
+      text-align: center; padding: 28px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--text2);
+      font-family: var(--en);
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 26px; }
+      .hero { padding: 110px 24px 40px; }
+      .content { padding: 40px 20px 64px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="/">Re<span>:</span>do</a>
+    <a class="back-link" href="/">ホームに戻る</a>
+  </div>
+</header>
+
+<div class="hero">
+  <span class="app-label">Hodoku</span>
+  <h1>利用規約</h1>
+  <p class="meta">Terms of Service &nbsp;·&nbsp; 2026年4月18日 施行</p>
+</div>
+
+<div class="divider"><hr></div>
+
+<div class="content">
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li>定義</li>
+      <li>本規約への同意</li>
+      <li>本規約の変更</li>
+      <li>有料サービス</li>
+      <li>本アプリの利用</li>
+      <li>AIの利用について</li>
+      <li>シェア機能について</li>
+      <li>知的財産権</li>
+      <li>禁止事項</li>
+      <li>本アプリの変更・中断・終了</li>
+      <li>免責事項</li>
+      <li>個人情報の取扱い</li>
+      <li>権利義務の譲渡禁止</li>
+      <li>分離可能性</li>
+      <li>お問い合わせ</li>
+      <li>準拠法・管轄裁判所</li>
+    </ol>
+  </div>
+
+  <p style="font-size:14px;color:var(--text2);font-weight:300;margin-bottom:48px;line-height:1.85;">
+    この利用規約（以下「本規約」といいます）は、Re:do（以下「運営者」といいます）が提供するiOSアプリケーション「Hodoku」（以下「本アプリ」といいます）の利用条件を定めるものです。本アプリをご利用いただく前に、本規約をよくお読みください。本アプリをダウンロードまたは利用された場合、本規約に同意したものとみなします。
+  </p>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">01</span>定義</div>
+    <p>本規約において使用する用語の定義は、次のとおりとします。</p>
+    <ol>
+      <li>「本アプリ」とは、運営者が提供する感情整理アプリケーション「Hodoku」をいいます。</li>
+      <li>「利用者」とは、本アプリを利用するすべての方をいいます。</li>
+      <li>「本コンテンツ」とは、本アプリ上で提供されるAIによる分析結果、画像、テキストその他一切の情報をいいます。</li>
+      <li>「有料サービス」とは、本アプリ内で提供する買い切り型のプランをいいます。</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">02</span>本規約への同意</div>
+    <p>1. 利用者は、本規約に同意した上で、本アプリを利用できるものとします。</p>
+    <p>2. 利用者が本アプリをダウンロードし、または利用を開始した時点で、利用者と運営者との間で、本規約の諸規定に従った利用契約が成立するものとします。</p>
+    <p>3. 利用者が未成年者である場合には、親権者その他の法定代理人の同意を得た上で、本アプリをご利用ください。</p>
+    <p>4. 未成年者の利用者が、法定代理人の同意がないにもかかわらず同意があると偽り、または年齢について成年と偽って本アプリを利用した場合、その他行為能力者であることを信じさせるために詐術を用いた場合、本アプリに関する一切の法律行為を取り消すことはできません。</p>
+    <p>5. 本規約の同意時に未成年であった利用者が成年に達した後に本アプリを利用した場合、当該利用者は本アプリに関する一切の法律行為を追認したものとみなされます。</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">03</span>本規約の変更</div>
+    <p>1. 運営者は、以下の場合には、利用者の個別の同意を要せず、本規約を変更することができるものとします。</p>
+    <ol>
+      <li>本規約の変更が利用者の一般の利益に適合するとき</li>
+      <li>本規約の変更が本アプリ利用契約の目的に反せず、かつ、変更の必要性、変更後の内容の相当性その他の変更に係る事情に照らして合理的なものであるとき</li>
+    </ol>
+    <p>2. 運営者は、本規約を変更する場合、変更後の本規約の内容および効力発生時期を、本アプリ内での表示またはその他適切な方法により利用者に通知します。</p>
+    <p>3. 利用者は、本規約変更後に本アプリを利用した時点で、変更後の本規約に同意したものとみなされます。</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">04</span>有料サービス</div>
+    <p>1. 本アプリは以下のプランを提供します。</p>
+    <ol>
+      <li>無料プラン：広告表示あり、利用回数無制限</li>
+      <li>ライトプラン：300円（税込・買い切り）、広告なし、1日5回まで利用可能</li>
+      <li>プレミアムプラン：800円（税込・買い切り）、広告なし、1日20回まで利用可能</li>
+    </ol>
+    <p>2. 有料サービスの料金は、App Store経由でのApp内課金により支払うものとします。</p>
+    <p>3. 有料サービスはいずれも買い切り型であり、自動更新はありません。</p>
+    <p>4. 返金については、Appleの返金ポリシーに準拠するものとします。</p>
+    <div class="highlight-box">
+      運営者が本アプリの提供を終了した場合であっても、購入済みの有料プランの代金は返金されません。利用者はあらかじめこれに同意した上で購入するものとします。
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">05</span>本アプリの利用</div>
+    <p>1. 本アプリは、利用者の端末上でオフラインでも一部機能が動作します。ただし、AI分析機能の利用にはインターネット接続が必要です。</p>
+    <p>2. 本アプリの学習データおよび利用履歴は、利用者の端末内に保存されます。端末の変更、アプリの削除、または端末の故障等により、これらのデータが失われる場合があります。</p>
+    <p>3. 運営者は、利用者のデータの保全について一切の責任を負いません。</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">06</span>AIの利用について</div>
+    <p>1. 本アプリは、利用者が入力した内容を外部のAIサービス（Anthropic社のClaude API）に送信し、感情整理の分析結果を提供します。</p>
+    <p>2. AIによる分析結果はあくまで参考情報であり、その正確性・適切性・完全性を運営者は保証しません。</p>
+    <div class="highlight-box">
+      本アプリは感情の整理を補助するツールであり、医学的・心理学的な診断、治療、または専門家によるカウンセリングの代替となるものではありません。深刻な悩みや精神的な不調については、医療機関や専門家にご相談ください。
+    </div>
+    <p>3. AIの回答を参考にした結果、利用者または第三者に何らかの損害が生じた場合であっても、運営者は一切の責任を負いません。</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">07</span>シェア機能について</div>
+    <p>1. 本アプリは、AI分析結果を画像またはテキストとして外部サービス（SNS、メッセージアプリ等）にシェアする機能を提供します。</p>
+    <p>2. シェアする内容には、利用者自身の感情・状況に関する情報のほか、相手方に関する情報が含まれる場合があります。シェアの実施およびその結果については、利用者自身の責任において行うものとし、運営者は一切の責任を負いません。</p>
+    <p>3. 利用者は、シェアにあたり、関係する第三者のプライバシーに十分配慮するものとします。</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">08</span>知的財産権</div>
+    <p>1. 本アプリおよび本コンテンツに関する著作権、商標権その他の知的財産権は、運営者または正当な権利者に帰属します。</p>
+    <p>2. 利用者は、本コンテンツを私的使用の範囲を超えて複製、転載、改変、配布、販売その他の方法で利用することはできません。</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">09</span>禁止事項</div>
+    <p>利用者は、本アプリの利用にあたり、以下の行為をしてはなりません。</p>
+    <ol>
+      <li>法令または公序良俗に違反する行為</li>
+      <li>本アプリまたは本コンテンツの知的財産権を侵害する行為</li>
+      <li>本アプリの逆コンパイル、逆アセンブル、リバースエンジニアリングその他本アプリのソースコードを解析する行為</li>
+      <li>本コンテンツを私的使用の範囲を超えて複製、転載、配布、販売する行為</li>
+      <li>本アプリのAI機能を不正な目的または過度な負荷をかける目的で利用する行為</li>
+      <li>他の利用者または第三者の権利・プライバシーを侵害する行為</li>
+      <li>本アプリの運営を妨害するおそれのある行為</li>
+      <li>その他、運営者が不適切と判断する行為</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">10</span>本アプリの変更・中断・終了</div>
+    <p>1. 運営者は、利用者に事前に通知することなく、本アプリの内容を変更し、または本アプリの提供を中断もしくは終了することができるものとします。</p>
+    <p>2. 運営者は、本アプリの変更、中断または終了により利用者に生じた損害について、一切の責任を負いません。</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">11</span>免責事項</div>
+    <p>1. 運営者は、本アプリが利用者の特定の目的に適合すること、期待する機能・正確性・有用性を有すること、および不具合が生じないことについて、何ら保証するものではありません。</p>
+    <p>2. 運営者は、本アプリがすべての端末に対応していることを保証するものではなく、OSのバージョンアップ等に伴い、本アプリの動作に不具合が生じる可能性があることを、利用者はあらかじめ了承するものとします。</p>
+    <p>3. 運営者は、本アプリを利用したことにより直接的または間接的に利用者に発生した損害について、運営者の故意または重大な過失による場合を除き、一切の賠償責任を負いません。</p>
+    <p>4. 前項ただし書に定める場合であっても、運営者は、特別な事情から生じた損害については、一切賠償する責任を負わないものとします。</p>
+    <p>5. 本アプリに関して運営者が損害賠償責任を負う場合、当該損害が発生した月に利用者から受領した利用料金の額（無料プランの場合は0円）を上限とします。</p>
+    <p>6. 本条の規定は、本アプリに関する運営者と利用者との間の契約が消費者契約法に定める消費者契約となる場合には、適用されません。</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">12</span>個人情報の取扱い</div>
+    <p>運営者は、本アプリの利用によって取得する個人情報については、別途定める「プライバシーポリシー」に従い、適切に取り扱うものとします。</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">13</span>権利義務の譲渡禁止</div>
+    <p>利用者は、運営者の書面による事前の承諾なく、本規約上の地位または本規約に基づく権利もしくは義務を第三者に譲渡し、または担保に供することはできません。</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">14</span>分離可能性</div>
+    <p>本規約のいずれかの条項またはその一部が、消費者契約法その他の法令等により無効または執行不能と判断された場合であっても、本規約の残りの規定および一部が無効または執行不能と判断された規定の残りの部分は、継続して完全に効力を有するものとします。</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">15</span>お問い合わせ</div>
+    <p>本アプリに関するお問い合わせは、以下の連絡先までお願いいたします。</p>
+    <p>メールアドレス：<a href="mailto:info@redo-app.com" style="color:var(--accent);text-decoration:none;font-weight:500;">info@redo-app.com</a></p>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="section-num">16</span>準拠法・管轄裁判所</div>
+    <p>1. 本規約の解釈にあたっては、日本法を準拠法とします。</p>
+    <p>2. 本アプリに関して紛争が生じた場合には、名古屋地方裁判所を第一審の専属的合意管轄裁判所とします。</p>
+  </div>
+
+  <div class="closing">
+    <p>制定日</p>
+    <p class="date">2026年4月18日</p>
+  </div>
+
+</div>
+
+<footer>&copy; 2026 Re:do. All rights reserved.</footer>
+
+</body>
+</html>
