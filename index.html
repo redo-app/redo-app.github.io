@@ -78,10 +78,18 @@
 
     .apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
 
+    /* アプリカード：外枠（リンク + 法的リンク をまとめる） */
+    .app-card-wrap {
+      display: flex; flex-direction: column;
+    }
+
+    /* アプリ説明カード（タップでAppStore） */
     .app-card {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 36px 32px; transition: box-shadow 0.3s, transform 0.3s;
+      border-radius: 16px 16px 0 0; padding: 36px 32px;
+      transition: box-shadow 0.3s, transform 0.3s;
       text-decoration: none; color: inherit; display: block;
+      border-bottom: none;
     }
     .app-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.06); transform: translateY(-2px); }
 
@@ -90,8 +98,48 @@
       margin-bottom: 20px; object-fit: cover;
     }
 
+    /* アイコン未定用プレースホルダー */
+    .app-icon-placeholder {
+      width: 56px; height: 56px; border-radius: 14px;
+      margin-bottom: 20px;
+      background: var(--bg);
+      border: 1.5px dashed var(--border);
+    }
+
     .app-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
     .app-card p { font-size: 14px; color: var(--text2); line-height: 1.7; }
+
+    /* 法的リンクエリア */
+    .app-legal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 0 0 16px 16px;
+      border-top: 1px solid var(--border);
+      padding: 12px 32px;
+      display: flex; gap: 4px; flex-wrap: wrap; align-items: center;
+    }
+
+    .app-legal a {
+      font-size: 12px; font-weight: 500; color: var(--text2);
+      text-decoration: none; transition: color 0.2s;
+      display: inline-flex; align-items: center; gap: 3px;
+      padding: 4px 0;
+      white-space: nowrap;
+    }
+    .app-legal a:hover { color: var(--accent); }
+
+    /* 外部リンクアイコン */
+    .app-legal a::after {
+      content: '↗';
+      font-size: 10px;
+      opacity: 0.6;
+    }
+
+    /* 区切り */
+    .app-legal .sep {
+      font-size: 12px; color: var(--border);
+      padding: 0 4px; user-select: none;
+    }
 
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
     .about-text p { font-size: 15px; color: var(--text2); margin-bottom: 16px; font-weight: 300; }
@@ -122,6 +170,8 @@
       .about-grid { grid-template-columns: 1fr; gap: 32px; }
       nav a { margin-left: 16px; font-size: 13px; }
       .hero { padding: 140px 24px 60px; }
+      .app-card { padding: 28px 24px; }
+      .app-legal { padding: 12px 24px; }
     }
   </style>
 </head>
@@ -148,16 +198,55 @@
     <div class="label">Apps</div>
     <h2 class="title">提供アプリ</h2>
     <div class="apps-grid">
-      <a class="app-card" href="https://apps.apple.com/jp/app/%E3%82%B9%E3%83%9E%E7%9C%8B/id6757530983" target="_blank" rel="noopener noreferrer">
-        <img src="smakan-icon.png" alt="スマ看" class="app-icon">
-        <h3>スマ看</h3>
-        <p>記憶定着に特化した看護師国家試験対策アプリ。目標日数に合わせて問題数や復習スケジュールをアプリが自動管理。独自の合格率判定機能で、学習の進捗を可視化します。</p>
-      </a>
-      <a class="app-card" href="https://apps.apple.com/jp/app/re-talk/id6759627330" target="_blank" rel="noopener noreferrer">
-        <img src="retalk-icon.png" alt="Retalk" class="app-icon">
-        <h3>Retalk</h3>
-        <p>会話の流れごと覚える英語学習アプリ。自然な会話を通じて実践的な英語力を身につけ、間隔反復システムで長期記憶への定着をサポートします。</p>
-      </a>
+
+      <!-- スマ看 -->
+      <div class="app-card-wrap">
+        <a class="app-card" href="https://apps.apple.com/jp/app/%E3%82%B9%E3%83%9E%E7%9C%8B/id6757530983" target="_blank" rel="noopener noreferrer">
+          <img src="smakan-icon.png" alt="スマ看" class="app-icon">
+          <h3>スマ看</h3>
+          <p>記憶定着に特化した看護師国家試験対策アプリ。目標日数に合わせて問題数や復習スケジュールをアプリが自動管理。独自の合格率判定機能で、学習の進捗を可視化します。</p>
+        </a>
+        <div class="app-legal">
+          <a href="/smakan-terms.html" target="_blank" rel="noopener noreferrer">利用規約</a>
+          <span class="sep">·</span>
+          <a href="/smakan-privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
+          <span class="sep">·</span>
+          <a href="/smakan-tokusho.html" target="_blank" rel="noopener noreferrer">特定商取引法</a>
+        </div>
+      </div>
+
+      <!-- Retalk -->
+      <div class="app-card-wrap">
+        <a class="app-card" href="https://apps.apple.com/jp/app/re-talk/id6759627330" target="_blank" rel="noopener noreferrer">
+          <img src="retalk-icon.png" alt="Retalk" class="app-icon">
+          <h3>Retalk</h3>
+          <p>会話の流れごと覚える英語学習アプリ。自然な会話を通じて実践的な英語力を身につけ、間隔反復システムで長期記憶への定着をサポートします。</p>
+        </a>
+        <div class="app-legal">
+          <a href="/retalk-terms.html" target="_blank" rel="noopener noreferrer">利用規約</a>
+          <span class="sep">·</span>
+          <a href="/retalk-privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
+          <span class="sep">·</span>
+          <a href="/retalk-tokusho.html" target="_blank" rel="noopener noreferrer">特定商取引法</a>
+        </div>
+      </div>
+
+      <!-- Hodoku -->
+      <div class="app-card-wrap">
+        <a class="app-card" href="#" target="_blank" rel="noopener noreferrer">
+          <div class="app-icon-placeholder"></div>
+          <h3>Hodoku</h3>
+          <p>感情の言語化を助けて、人間関係のモヤモヤを整理するアプリ。選択式のUIで気持ちをガイドし、AIが相手の視点や解決策を提示します。</p>
+        </a>
+        <div class="app-legal">
+          <a href="/hodoku-terms.html" target="_blank" rel="noopener noreferrer">利用規約</a>
+          <span class="sep">·</span>
+          <a href="/hodoku-privacy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
+          <span class="sep">·</span>
+          <a href="/hodoku-tokusho.html" target="_blank" rel="noopener noreferrer">特定商取引法</a>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -184,7 +273,7 @@
   </div>
 </main>
 
-<footer>&copy; 2025 Re:do. All rights reserved.</footer>
+<footer>&copy; 2026 Re:do. All rights reserved.</footer>
 
 </body>
 </html>
